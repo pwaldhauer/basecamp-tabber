@@ -62,11 +62,13 @@ function main() {
       tab.html('All');
       tab.bind('click', function(ev) {
         show_all_tabs();
+        highlight_tab(jQuery(this));
       });
     } else {
       tab.html(name + ' (' + categories[name] + ')');
       tab.bind('click', function(ev) {
         show_tab(name);
+        highlight_tab(jQuery(this));
       });
     }
     
@@ -85,6 +87,12 @@ function main() {
   
       jQuery('.k_' + name).show();
   }
+  
+  function highlight_tab(tab) {
+    jQuery('.ktab').css('font-weight', 'normal');
+    tab.css('font-weight', 'bold');
+  }
+  
 }
 
 addJQuery(main);
